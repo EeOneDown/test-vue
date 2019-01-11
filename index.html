@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Мой Title страницы</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   </head>
   <body>
     <div id="app">
       <h1>{{ message }}</h1>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <div id="app-2">
+      <span v-bind:title="message">
+        Наведи на меня курсор на пару секунд,
+        чтобы увидеть динамически связанное значение title!
+      </span>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
