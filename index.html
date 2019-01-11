@@ -37,6 +37,16 @@
       <input v-model="message">
     </div>
 
+    <div id="app-7">
+      <ol>
+        <todo-item
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind:id="item.id"
+        ></todo-item>
+      </ol>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
