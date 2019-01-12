@@ -71,9 +71,31 @@
         <button @click="showHide" class="btn" :class="seen ? 'btn-danger' : 'btn-primary'">{{ seen ? "Скрыть" : "Отобразить" }}</button>
         <p><a :href="url">Reload page</a></p>
       </div>
+
+      <div id="app-10">
+        <p>Изначальное сообщение: {{ message }}</p>
+        <p>Сообщение задом наперед: {{ reversedMessage }}</p>
+      </div>
+
+      <div id="app-11">
+        <p>Имя: {{ firstName }}</p>
+        <p>Фамилия: {{ lastName }}</p>
+        <input type="text" v-model="fullName">
+        <p>Полное имя: {{ fullName }}</p>
+      </div>
+
+      <div id="app-12">
+        <p>
+          Задайте вопрос, на который можно ответить "да" или "нет":
+          <input v-model="question">
+        </p>
+        <p>{{ answer }}</p>
+      </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
