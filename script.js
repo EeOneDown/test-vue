@@ -156,3 +156,18 @@ var app12 = new Vue({
     }
   }
 })
+
+var app13 = new Vue({
+  el: "#app-13",
+  data: {
+    isDisabled: false,
+    isWarning: true
+  },
+  computed: {
+    classObject: function () {
+      return {
+        "btn-warning": true //this.isWarning && !this.isDisabled
+      }
+    }
+  }
+})
