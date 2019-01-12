@@ -50,6 +50,27 @@
           ></todo-item>
         </ol>
       </div>
+
+      <div id="app-8">
+        <span>Сообщение: {{ message }}.</span>
+        <span v-once>Это сообщение не изменится: {{ message }}</span>
+        <p>Усы: {{ rawHTML }}</p>
+        <p>Директива v-html: <span v-html="rawHTML"></span></p>
+        <div v-bind:id="dynamicId"></div>
+        <button v-bind:disabled="isButtonDisabled">Кнопка</button>
+
+        <p>{{ number + 1 }}</p>
+        <p>{{ ok ? "YES" : "NO" }}</p>
+        <p>{{ message.split("").reverse().join("") }}</p>
+
+        <div v-bind:id="'list-' + id"></div>
+      </div>
+
+      <div id="app-9">
+        <p v-if="seen">Сейчас меня видно</p>
+        <button @click="showHide" class="btn" :class="seen ? 'btn-danger' : 'btn-primary'">{{ seen ? "Скрыть" : "Отобразить" }}</button>
+        <p><a :href="url">Reload page</a></p>
+      </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>

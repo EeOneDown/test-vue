@@ -64,3 +64,29 @@ var app7 = new Vue({
     ]
   }
 })
+
+var app8 = new Vue({
+  el: "#app-8",
+  data: {
+    message: "старый текст",
+    rawHTML: "<span style=\"color: red\">Текст должен быть красным.</span>",
+    dynamicId: 1,
+    isButtonDisabled: true,
+    number: 8,
+    ok: true,
+    id: 8
+  }
+})
+
+var app9 = new Vue({
+  el: "#app-9",
+  data: {
+    seen: true,
+    url: "https://eeonedown.github.io/test-vue/"
+  },
+  methods: {
+    showHide: function () {
+      this.seen = !this.seen
+    }
+  }
+})
