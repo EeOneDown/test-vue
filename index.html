@@ -8,100 +8,29 @@
   </head>
   <body>
     <div class="container">
-      <div id="app">
-        <h1>{{ message }}</h1>
-      </div>
-  
-      <div id="app-2">
-        <span v-bind:title="message">
-          Наведи на меня курсор на пару секунд,
-          чтобы увидеть динамически связанное значение title!
-        </span>
-      </div>
-  
-      <div id="app-3">
-        <span v-if="seen">Сейчас меня видно</span>
-      </div>
-  
-      <div id="app-4">
-        <ol>
-          <li v-for="todo in todos">
-            {{ todo.text }}
-          </li>
-        </ol>
-      </div>
-  
-      <div id="app-5">
-        <p>{{ message }}</p>
-        <button v-on:click="reverseMessage" class="btn btn-primary">Перевернуть сообщение</button>
-      </div>
-  
-      <div id="app-6">
-        <p>{{ message }}</p>
-        <input v-model="message">
-      </div>
-  
-      <div id="app-7">
-        <ol>
-          <todo-item
-            v-for="item in groceryList"
-            v-bind:todo="item"
-            v-bind:id="item.id"
-          ></todo-item>
-        </ol>
-      </div>
-
-      <div id="app-8">
-        <span>Сообщение: {{ message }}.</span>
-        <span v-once>Это сообщение не изменится: {{ message }}</span>
-        <p>Усы: {{ rawHTML }}</p>
-        <p>Директива v-html: <span v-html="rawHTML"></span></p>
-        <div v-bind:id="dynamicId"></div>
-        <button v-bind:disabled="isButtonDisabled">Кнопка</button>
-
-        <p>{{ number + 1 }}</p>
-        <p>{{ ok ? "YES" : "NO" }}</p>
-        <p>{{ message.split("").reverse().join("") }}</p>
-
-        <div v-bind:id="'list-' + id"></div>
-      </div>
-
-      <div id="app-9">
-        <p v-if="seen">Сейчас меня видно</p>
-        <button @click="showHide" class="btn" :class="seen ? 'btn-danger' : 'btn-primary'">{{ seen ? "Скрыть" : "Отобразить" }}</button>
-        <p><a :href="url">Reload page</a></p>
-      </div>
-
-      <div id="app-10">
-        <p>Изначальное сообщение: {{ message }}</p>
-        <p>Сообщение задом наперед: {{ reversedMessage }}</p>
-      </div>
-
-      <div id="app-11">
-        <p>Имя: {{ firstName }}</p>
-        <p>Фамилия: {{ lastName }}</p>
-        <input type="text" v-model="fullName">
-        <p>Полное имя: {{ fullName }}</p>
-      </div>
-
-      <div id="app-12">
-        <p>
-          Задайте вопрос, на который можно ответить "да" или "нет":
-          <input v-model="question">
-        </p>
-        <p>{{ answer }}</p>
-      </div>
-
-      <div id="app-13">
-        <button class="btn" 
-          :class="classObject"
-        >Кнопка</button>
+      <div id="app-todo" class="lead">
+        <form v-on:submit.prevent="addNewTodo">
+          <label for="new-todo">Добавить задачу</label>
+          <input 
+            v-model="newTodoText"
+            id="new-todo"
+            placeholder="Например, покормить кота"
+          >
+          <button class="btn btn-success">Добавить</button>
+        </form>
+        <ul>
+          <li
+            is="todo-item"
+            v-for="(todo, index) in todos"
+            :key="todo.id"
+            :title="todo.title"
+            v-on:remove="todos.splice(index, 1)"
+          ></li>
+        </ul>
       </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
