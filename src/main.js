@@ -1,6 +1,8 @@
-import App from './App.vue'
+Vue.use(httpVueLoader);
 
 new Vue({
   el: "#app",
-  render: h => h(App)
+  components: {
+    'app': httpVueLoader('App.vue')
+},
 })
