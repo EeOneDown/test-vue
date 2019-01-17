@@ -1,8 +1,6 @@
-httpVueLoader.register(Vue, './src/hello.vue');
-
 new Vue({
-  el: "#app",
-  components: [
-    'hello'
-  ]
+  el: '#my-app',
+  components: {
+    'hello': httpVueLoader('src/hello.vue')
+  }
 })

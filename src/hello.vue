@@ -1,13 +1,19 @@
 <template>
-  <h1>{{ message }}</h1>
+    <div class="hello">Hello {{who}}</div>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      message: "Hello from Vue!"
+module.exports = {
+    data: function() {
+        return {
+            who: 'world'
+        }
     }
-  }
 }
 </script>
+
+<style>
+.hello {
+    background-color: #ffe;
+}
+</style>
